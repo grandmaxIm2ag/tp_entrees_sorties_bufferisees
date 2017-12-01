@@ -20,10 +20,8 @@ bfile * bOpen(const char * path, char mode){
         return NULL;
     }
 
-    FILE * f = fopen( path , ((mode == 'E') ? "r" : "w") );
-    printf("%lu\n", fwrite("coucou", 6, 1, f));
-    
-    
+    FILE * f = fopen( path , ((mode == 'E') ? "w+" : "r") );
+
     if(f == NULL)
     {
         return NULL;
