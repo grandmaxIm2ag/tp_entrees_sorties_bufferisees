@@ -83,7 +83,8 @@ int fbWrite(bfile * bf, char * format, ...)
 
 int fbRead(bfile * bf,  char * format, ...)
 {
-    char * str, *s,s1[N],s2[N], c, * c1;
+    char * str, *s,s1[N],*s2, c, * c1;
+    s2 = (char *)malloc(N);
     int *x, count=0, seek=0, k, j;
     unsigned b = 1, b2;
     va_list arg;
@@ -121,8 +122,16 @@ int fbRead(bfile * bf,  char * format, ...)
                     {
                         b2=0;
                     }
+                    if(j>=N)
+                    {
+                        s2=realloc(s2, sizeof(s2)+N);
+                    }
                 }
                 seek=k;
+                if((k=bRead(s1, 1, N, bf)))
+                {
+                    b = 0;
+                }
             }while(b && b2);
             *x = atoi(s2);
             count ++;
@@ -138,19 +147,25 @@ int fbRead(bfile * bf,  char * format, ...)
             j=0;
             do
             {
-                printf("||%d||\n", (seek<N && b2));
                 for(k=seek; k<N && b2; k++ )
                 {
                     if(!is_separator(s1[k]))
                     {
                         
                         s[j++] = s1[k];
-                        printf("%c %c %s\n", s1[k], s[j-1], s);
                     }
                     else
                     {
                         b2=0;
                     }
+                    if(j>=N)
+                    {
+                        s=realloc(s, sizeof(s2)+N);
+                    }
+                }
+                if(b2 && (k=bRead(s1, 1, N, bf)))
+                {
+                    b = 0;
                 }
                 seek=k;
             }while(b && b2);
