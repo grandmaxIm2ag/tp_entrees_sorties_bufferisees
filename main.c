@@ -10,7 +10,8 @@ int main()
     bfile * bf = bOpen("fichier_test.txt", 'E');
     char s [128] = "coucou est ce que cà marche ?\n";
     bWrite(s, sizeof(s), 1, bf);
-
+    bWrite(s, sizeof(s), 1, bf);
+    bWrite(s, sizeof(s), 1, bf);
     fbWrite(bf, "Cela va t'il fonctionner ? %d %c %s \n", 256, 'c', "Oui");
     bClose(bf);
     

@@ -32,7 +32,7 @@ bfile * bOpen(const char * path, char mode){
     bf -> mode = mode;
     bf -> file_seek = 0;
     bf -> buffer_seek = 0;
-    bf -> size_buffer = 4*1024;
+    bf -> size_buffer = N;
     bf -> buffer = (char *) malloc(sizeof(char)*bf->size_buffer);
 
     if(mode == 'L')
