@@ -83,8 +83,8 @@ int fbWrite(bfile * bf, char * format, ...)
 
 int fbRead(bfile * bf,  char * format, ...)
 {
-    char * str/*, s[N]*/,s1[N],s2[N], c, * c1;
-    int *x, count=0, seek=0, k;
+    char * str, *s,s1[N],s2[N], c, * c1;
+    int *x, count=0, seek=0, k, j;
     unsigned b = 1, b2;
     va_list arg;
     bRead(s1, 1, N, bf);
@@ -131,12 +131,32 @@ int fbRead(bfile * bf,  char * format, ...)
             c1 = (char *) va_arg(arg,char*);
             *c1 = s1[seek++];
             count ++;
-            break;/*
+            break;
         case 's':
-            s = va_arg(arg,char*);
+            s = (char *)va_arg(arg,char*);
+            b2=1;
+            j=0;
+            do
+            {
+                printf("||%d||\n", (seek<N && b2));
+                for(k=seek; k<N && b2; k++ )
+                {
+                    if(!is_separator(s1[k]))
+                    {
+                        
+                        s[j++] = s1[k];
+                        printf("%c %c %s\n", s1[k], s[j-1], s);
+                    }
+                    else
+                    {
+                        b2=0;
+                    }
+                }
+                seek=k;
+            }while(b && b2);
+            s[seek] = '\0';
             count ++;
-            bWrite(s, sizeof(s), 1, bf);
-            break;*/
+            break;
         default:
             return count;
         }

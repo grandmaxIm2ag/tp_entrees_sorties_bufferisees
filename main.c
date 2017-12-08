@@ -24,8 +24,9 @@ int main()
     }
     bClose(bf);
 
-    bf = bOpen("test.txt", 'E');
-    int d, c; 
-    fbRead(bf, "%d %c", &d, &c);
-    printf("[[[ %d %c\n", d, c);
+    bf = bOpen("test.txt", 'L');
+    int d;
+    char c[N];
+    fbRead(bf, "%d %s", &d, c);
+    printf("[[[ %d %s\n", d, c);
 }
