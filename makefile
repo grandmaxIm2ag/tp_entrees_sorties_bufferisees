@@ -3,10 +3,13 @@ CFLAGS=-W -Wall -g -fpic
 LDFLAGS=
 LDFLAGS_STATIC=-L. -lbfile
 LDFLAGS_DYN=lbfile.so.1
-EXEC=main_static main_dyn
+EXEC=main_static main_dyn main
 LIBS=lbfile.a lbfile.so.1
 
 all: $(LIBS) $(EXEC) 
+
+main:main.o bfile.o format_in_out.o
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 main_dyn: main.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_DYN)

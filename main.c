@@ -1,32 +1,34 @@
 #include "include/bfile.h"
 #include "include/format_in_out.h"
+#include <time.h>
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(int argc, char ** argv)
 {
-
-    bfile * bf = bOpen("fichier_test.txt", 'E');
-    char s [128] = "coucou est ce que cà marche ?\n";
-    bWrite(s, sizeof(s), 1, bf);
-    bWrite(s, sizeof(s), 1, bf);
-    bWrite(s, sizeof(s), 1, bf);
-    fbWrite(bf, "Cela va t'il fonctionner ? %d %c %s \n",
-            256, 'c', "Oui");
-    bClose(bf);
-    
-    bf = bOpen("fichier_test.txt", 'L');
-    int n;
-    while( (n=bRead(s, sizeof(s), 1, bf) > 0) )
+    if(argc != 3)
     {
-        printf("%s",s);
+        fprintf(stderr,"Erreur Argument : %d argument(s) au lieu des deux attendus", argc);
+        fprintf(stderr, "usage : %s <name_file1> <name_file2>\n"
+                , argv[0]);
+        fprintf(stderr, "VOir le readme pour plus d'explications\n");
+        exit(1);
     }
-    bClose(bf);
 
-    bf = bOpen("test.txt", 'L');
-    int d;
-    char c[N];
-    fbRead(bf, "%d %s", &d, c);
-    printf("[[[ %d %s\n", d, c);
+    srand(time(NULL));
+    bfile * in = bOpen(argv[1], 'L');
+    bfile * out = bOpen(argv[2], 'E');
+
+    char s[100];
+    int r = rand()%100 + 1, n;
+
+    do
+    {
+        n = bRead(s, 1, r, in);
+        bWrite(s, n, 1, out);
+    }while(n>0);
+    bClose(in);
+    bClose(out);
+    return 1;
 }
