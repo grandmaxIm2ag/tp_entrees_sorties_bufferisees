@@ -4,6 +4,6 @@
 #include "bfile.h"
 
 int fbWrite(bfile * bf, char * format, ...);
-//int fbRead(bfile * bf, char * format, ...);
+int fbRead(bfile * bf, char * format, ...);
 
 #endif

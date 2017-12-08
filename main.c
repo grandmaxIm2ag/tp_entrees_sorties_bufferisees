@@ -12,7 +12,8 @@ int main()
     bWrite(s, sizeof(s), 1, bf);
     bWrite(s, sizeof(s), 1, bf);
     bWrite(s, sizeof(s), 1, bf);
-    fbWrite(bf, "Cela va t'il fonctionner ? %d %c %s \n", 256, 'c', "Oui");
+    fbWrite(bf, "Cela va t'il fonctionner ? %d %c %s \n",
+            256, 'c', "Oui");
     bClose(bf);
     
     bf = bOpen("fichier_test.txt", 'L');
@@ -22,4 +23,9 @@ int main()
         printf("%s",s);
     }
     bClose(bf);
+
+    bf = bOpen("test.txt", 'E');
+    int d, c; 
+    fbRead(bf, "%d %c", &d, &c);
+    printf("[[[ %d %c\n", d, c);
 }

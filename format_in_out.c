@@ -1,6 +1,7 @@
 #include "include/format_in_out.h"
 #include "include/bfile.h"
-#include <stdio.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include <sys/types.h>
 
@@ -25,41 +26,6 @@ char * convert_int_to_str(int x)
 unsigned is_separator(char c)
 {
     return (c=='\n' || c==' ' || c=='\t' || c=='\0');
-}
-char * next_str(bfile *bf, int seek);
-{
-
-    static char str[N];
-    static int n = bRead(str, 1, N, bf);
-    static int i =0, nb_read=1;
-    int count = 0;
-    char * res = (char *)malloc(sizeof(char)*N);
-    do
-    {
-        nb_read++;
-        for(i=i, i<n, i++)
-        {
-            if(!b && !is_separator(str[i]))
-            {
-                res[count++] = str[i];
-            }
-            else if(b && !is_end(str[i]))
-            {
-                res[count ++] = str[i];
-            }
-            else
-            {
-                return res;
-            }
-        }
-
-        if((n=bRead(str, 1, N, bf))<=0)
-        {
-            return res;
-        }
-        realloc(res, nb_read*N);
-        i=0;
-    }while(1);
 }
 
 int fbWrite(bfile * bf, char * format, ...)
@@ -117,10 +83,11 @@ int fbWrite(bfile * bf, char * format, ...)
 
 int fbRead(bfile * bf,  char * format, ...)
 {
-    char * str, s, c;
-    int x, count=0;
-    
-    va_list arg; 
+    char * str/*, s[N]*/,s1[N],s2[N], c, * c1;
+    int *x, count=0, seek=0, k;
+    unsigned b = 1, b2;
+    va_list arg;
+    bRead(s1, 1, N, bf);
     va_start(arg, format);
 
     //On parcourt la chaîne a écrire
@@ -139,21 +106,37 @@ int fbRead(bfile * bf,  char * format, ...)
         switch(c)
         {
         case 'd':
-            x = va_arg(arg,int*);
-            s = next_var(0, bf);
+            x = (int *)va_arg(arg,int*);
+            k=0;
+            b2=1;
+            do
+            {
+                for(k=seek; k<N && b2; k++ )
+                {
+                    if(!is_separator(s1[k]))
+                    {
+                        s2[k] = s1[k];
+                    }
+                    else
+                    {
+                        b2=0;
+                    }
+                }
+                seek=k;
+            }while(b && b2);
+            *x = atoi(s2);
             count ++;
-            bWrite(s, sizeof(s), 1, bf);
             break;
         case 'c':
-            c = va_arg(arg,char*);
+            c1 = (char *) va_arg(arg,char*);
+            *c1 = s1[seek++];
             count ++;
-            bWrite(&c, 1, 1, bf);
-            break;
+            break;/*
         case 's':
-            s = va_arg(arg,char**);
+            s = va_arg(arg,char*);
             count ++;
             bWrite(s, sizeof(s), 1, bf);
-            break;
+            break;*/
         default:
             return count;
         }
