@@ -89,7 +89,6 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
         if(pp[i] != '\0')
         {
             bf -> buffer [bf -> buffer_seek++] =  pp[i];
-            printf("%c",bf -> buffer [bf -> buffer_seek] );
             if(bf -> buffer_seek >= bf -> size_buffer
                ||  pp[i] == '\n' )
                 {
