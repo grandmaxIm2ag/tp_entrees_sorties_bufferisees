@@ -1,6 +1,6 @@
 #ifndef __BIFLE_H_
 #define __BFILE_H_
-#define N 4096
+#define N 40
 
 struct bfile;
 typedef struct bfile bfile;

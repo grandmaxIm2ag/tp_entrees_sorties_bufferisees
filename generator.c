@@ -17,7 +17,8 @@ int main(int argc, char ** argv)
     int length = rand() % 10000;
     for(int i=0; i<length; i++)
     {
-        char c = rand()%254 + 1;
+        int r = rand()%93 + 32;
+        char c = (char)r;
         write(fd,&c,1);
     }
     close(fd);

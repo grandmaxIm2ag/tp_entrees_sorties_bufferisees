@@ -3,12 +3,15 @@ CFLAGS=-W -Wall -g -fpic
 LDFLAGS=
 LDFLAGS_STATIC=-L. -lbfile
 LDFLAGS_DYN=lbfile.so.1
-EXEC=main_static main_dyn main generator
+EXEC=main_static main_dyn main generator test_format
 LIBS=lbfile.a lbfile.so.1
 
 all: $(LIBS) $(EXEC) 
 
 main:main.o bfile.o format_in_out.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+test_format:test_format.o bfile.o format_in_out.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 generator: generator.o 
@@ -31,7 +34,7 @@ lbfile.so.1: bfile.o format_in_out.o
 
 $(LIBS): lbfile.a lbfile.so.1
 
-tests: main generator
+tests: all
 	./script_test.sh
 clean:
 	rm -rf *.o
