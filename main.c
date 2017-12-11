@@ -21,12 +21,16 @@ int main(int argc, char ** argv)
     bfile * out = bOpen(argv[2], 'E');
 
     char s[100];
-    int r = rand()%100 + 1, n;
+    int r,n;
 
     do
     {
+        r = rand()%100 + 1;
         n = bRead(s, 1, r, in);
-        bWrite(s, n, 1, out);
+        if(n>0)
+        {
+            bWrite(s, n, 1, out);
+        }
     }while(n>0);
     bClose(in);
     bClose(out);

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <sys/types.h>
+#include <string.h>
 
 char * convert_int_to_str(int x)
 {
@@ -69,7 +70,7 @@ int fbWrite(bfile * bf, char * format, ...)
         case 's':
             s = va_arg(arg,char*);
             count ++;
-            bWrite(s, sizeof(s), 1, bf);
+            bWrite(s, strlen(s), 1, bf);
             break;
         default:
             return count;
@@ -140,6 +141,7 @@ int fbRead(bfile * bf,  char * format, ...)
             c1 = (char *) va_arg(arg,char*);
             *c1 = s1[seek++];
             count ++;
+            seek++;
             break;
         case 's':
             s = (char *)va_arg(arg,char*);
@@ -151,7 +153,6 @@ int fbRead(bfile * bf,  char * format, ...)
                 {
                     if(!is_separator(s1[k]))
                     {
-                        
                         s[j++] = s1[k];
                     }
                     else
@@ -169,7 +170,6 @@ int fbRead(bfile * bf,  char * format, ...)
                 }
                 seek=k;
             }while(b && b2);
-            s[seek] = '\0';
             count ++;
             break;
         default:
