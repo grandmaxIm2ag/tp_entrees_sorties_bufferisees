@@ -1,3 +1,9 @@
+/**
+ * \file format_in_out.c
+ *
+ * \brief Implémentation des écritures et lectures formatées
+ */
+
 #include "include/format_in_out.h"
 #include "include/bfile.h"
 #include <stdio.h>
@@ -6,6 +12,15 @@
 #include <sys/types.h>
 #include <string.h>
 
+/**
+ * \fn char * convert_int_to_str(int x)
+ *
+ * \param x : l'entier à converir en chaîne
+ *
+ * \return Une chaîne de caractère
+ *
+ * \brief Le but de la fonction est de convertir un entier en chaîne.
+ */
 char * convert_int_to_str(int x)
 {
     static char buff[11];
@@ -24,11 +39,34 @@ char * convert_int_to_str(int x)
     return res;
 }
 
+
+/**
+ * \fn unsigned is_separator(char c)
+ *
+ * \param c : lcaractère à tester
+ *
+ * \return Un booléen, true si c est séparateur, false sinon
+ *
+ * \brief Le but de la fonction est de vérifier qu'un caractère est un 
+ * séparateur ou non.
+ */
 unsigned is_separator(char c)
 {
     return (c=='\n' || c==' ' || c=='\t' || c=='\0');
 }
 
+/**
+ * \fn int fbWrite(bfile * bf, char * format, ...)
+ *
+ * \param bf : la structure du fichier bufférisé
+ * \param format : La chaîne formatée
+ * \param ... : Les différentes variables à écrire
+ *
+ * \return Le nombre d'octet écrit
+ *
+ * \brief Le but de la fonction est d'écrire la chaîne format dans bf->f
+ * en remplaçant les % par les valeurs des variables.
+ */
 int fbWrite(bfile * bf, char * format, ...)
 {
     char * str, *s, c;
@@ -81,7 +119,18 @@ int fbWrite(bfile * bf, char * format, ...)
     return count;
 }
 
-
+/**
+ * \fn int fbread(bfile * bf, char * format, ...)
+ *
+ * \param bf : la structure du fichier bufférisé
+ * \param format : La chaîne formatée
+ * \param ... : Les différents pointeurs des variables à écrire
+ *
+ * \return Le nombre d'octet lus
+ *
+ * \brief Le but de la fonction est de lire la chaîne format dans bf->f
+ * en écrivant les valeurs des % dans la mémoire pointée par les variables.
+ */
 int fbRead(bfile * bf,  char * format, ...)
 {
     char * str, *s,s1[N],*s2, c, * c1;
@@ -113,6 +162,7 @@ int fbRead(bfile * bf,  char * format, ...)
             b2=1;
             do
             {
+                //On lit l'entier contenu dans bf->f 
                 for(k=seek; k<N && b2; k++ )
                 {
                     if(!is_separator(s1[k]))
@@ -121,15 +171,17 @@ int fbRead(bfile * bf,  char * format, ...)
                     }
                     else
                     {
+                        //Indique que l'entier a été lu entièrement
                         b2=0;
                     }
                     if(j>=N)
                     {
+                        //Si l'entier est supérieurs à N, on ralloue s2
                         s2=realloc(s2, sizeof(s2)+N);
                     }
                 }
                 seek=k;
-                if((k=bRead(s1, 1, N, bf)))
+                if(b2 && (k=bRead(s1, 1, N, bf)))
                 {
                     b = 0;
                 }

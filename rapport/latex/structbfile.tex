@@ -1,0 +1,75 @@
+\section{bfile Struct Reference}
+\label{structbfile}\index{bfile@{bfile}}
+
+
+Structure pour les écritures et lectures bufferisées.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+LE $\ast$ {\bf f}
+\item 
+char {\bf mode}
+\item 
+char $\ast$ {\bf buffer}
+\item 
+unsigned {\bf file\+\_\+seek}
+\item 
+unsigned {\bf buffer\+\_\+seek}
+\item 
+size\+\_\+t {\bf size\+\_\+buffer}
+\item 
+unsigned {\bf eof}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure pour les écritures et lectures bufferisées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & \+: le fichier \\
+\hline
+{\em mode} & \+: Mode de lecteur, E pour écriture, L pour lecture \\
+\hline
+{\em buffer} & \+: Notre tampon \\
+\hline
+{\em file\+\_\+seek} & \+: Curseur de f \\
+\hline
+{\em file\+\_\+seek} & \+: Curseur de buffer \\
+\hline
+{\em size\+\_\+buffer} & \+: taille du buffer \\
+\hline
+{\em eof} & \+: booléen indiquant si il reste des choses `a lire dans le fichier \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Field Documentation}
+\index{bfile@{bfile}!buffer@{buffer}}
+\index{buffer@{buffer}!bfile@{bfile}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ buffer}\label{structbfile_aff2566f4c366b48d73479bef43ee4d2e}
+\index{bfile@{bfile}!buffer\+\_\+seek@{buffer\+\_\+seek}}
+\index{buffer\+\_\+seek@{buffer\+\_\+seek}!bfile@{bfile}}
+\subsubsection[{buffer\+\_\+seek}]{\setlength{\rightskip}{0pt plus 5cm}unsigned buffer\+\_\+seek}\label{structbfile_aca30292a051fc4985314320d3cbf9fa4}
+\index{bfile@{bfile}!eof@{eof}}
+\index{eof@{eof}!bfile@{bfile}}
+\subsubsection[{eof}]{\setlength{\rightskip}{0pt plus 5cm}unsigned eof}\label{structbfile_aef4112a8c58f34b92863e0fe240d791f}
+\index{bfile@{bfile}!f@{f}}
+\index{f@{f}!bfile@{bfile}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}F\+I\+LE$\ast$ f}\label{structbfile_a3efb0e1a16208deecbd84c15401f7cf8}
+\index{bfile@{bfile}!file\+\_\+seek@{file\+\_\+seek}}
+\index{file\+\_\+seek@{file\+\_\+seek}!bfile@{bfile}}
+\subsubsection[{file\+\_\+seek}]{\setlength{\rightskip}{0pt plus 5cm}unsigned file\+\_\+seek}\label{structbfile_a3b0be3218e5b929399c4d9e7679f09a8}
+\index{bfile@{bfile}!mode@{mode}}
+\index{mode@{mode}!bfile@{bfile}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}char mode}\label{structbfile_a000e34997df38c2005a83d63e67d9282}
+\index{bfile@{bfile}!size\+\_\+buffer@{size\+\_\+buffer}}
+\index{size\+\_\+buffer@{size\+\_\+buffer}!bfile@{bfile}}
+\subsubsection[{size\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t size\+\_\+buffer}\label{structbfile_abef66a7af40c1b491eceb9cda4e788a2}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+{\bf bfile.\+c}\end{DoxyCompactItemize}
