@@ -5,6 +5,10 @@
 #include <stdarg.h>
 #include <sys/types.h>
 
+/**
+ *La structure pour l'accès à un fichier f, ouvert en mode lecture ou en écriture se fassent
+ *par le biais d'un buffer pour gèrerer l'allocation, libération, le remplissage et le vidage. 
+ */
 struct bfile
 {
     FILE * f;
@@ -14,7 +18,12 @@ struct bfile
     unsigned buffer_seek; 
     size_t size_buffer;
 };
-
+/**
+ *Le but de la fonction est ouvrir le fichier avec le nom path uniquement avec le mode
+ *d'ouverture en lecture ('L') ou en écriture 'E' et allouer la structure de type FICHIER
+ *avec son tampon et son descripteur de fichier. La fonction renvoie NULL si le fichier
+ *ne peut pas être ouvert au contraire un pointeursur un objet de type FICHIER. 
+ */
 bfile * bOpen(const char * path, char mode){
 
     if(mode != 'E' && mode != 'L')
