@@ -12,7 +12,7 @@ int main(int argc, char ** argv)
         fprintf(stderr,"Erreur Argument : %d argument(s) au lieu des deux attendus", argc);
         fprintf(stderr, "usage : %s <name_file1> <name_file2>\n"
                 , argv[0]);
-        fprintf(stderr, "VOir le readme pour plus d'explications\n");
+        fprintf(stderr, "Voir le readme pour plus d'explications\n");
         exit(1);
     }
 
