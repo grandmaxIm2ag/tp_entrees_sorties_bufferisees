@@ -22,7 +22,7 @@ struct bfile
  *Le but de la fonction est ouvrir le fichier avec le nom path uniquement avec le mode
  *d'ouverture en lecture ('L') ou en écriture 'E' et allouer la structure de type FICHIER
  *avec son tampon et son descripteur de fichier. La fonction renvoie NULL si le fichier
- *ne peut pas être ouvert au contraire un pointeursur un objet de type FICHIER. 
+ *ne peut pas être ouvert au contraire un pointeur sur un objet de type FICHIER. 
  */
 bfile * bOpen(const char * path, char mode){
 
@@ -53,7 +53,10 @@ bfile * bOpen(const char * path, char mode){
     
     return bf;
 }
-
+/**
+ *Le but de la fonction est fermer et libérée le fichier pointé sur la structure de
+ *donnée de type FICHIER.
+ */
 int bClose(bfile * bf)
 {
     if(bf == NULL)
@@ -73,6 +76,21 @@ int bClose(bfile * bf)
     
     return ret;
 }
+/**
+ *Le but de la fonction est écrit
+ *
+ */
+
+int ecrire(void *p, unsigned int taille, unsigned int nbelem, FICHIER *f);
+écrit nbelem éléments de données tenant sur taille octets stockés à l’emplacement mémoire
+pointé par p dans le fichier pointé par f. 
+La fonction ecrire retourne le nombre d’éléments écrits. 
+    
+Le fichier doit avoir été ouvert en mode ’E’. 
+    
+    
+données devront être écrites dans le tampon contenu dans f qui ne devra être lui-même écrit à
+l’aide d’un write qu’en cas de besoin.
 
 
 int bWrite(void * p, int size, int nb_element, bfile * bf)
