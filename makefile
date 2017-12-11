@@ -1,10 +1,9 @@
 CC=gcc
 CFLAGS=-W -Wall -g -fpic
 LDFLAGS=
-LDFLAGS_STATIC=-L. -lbfile
+LDFLAGS_STATIC=lbfile.a
 LDFLAGS_DYN=lbfile.so.1
-EXEC=main_static main_dyn main generator test_format
-LIBS=lbfile.a lbfile.so.1
+EXEC=main_dyn main_static main generator test_format
 
 all: $(LIBS) $(EXEC) 
 
@@ -17,10 +16,10 @@ test_format:test_format.o bfile.o format_in_out.o
 generator: generator.o 
 	$(CC) -o $@ $^ $(LDFLAGS)
 
-main_dyn: main.o
+main_dyn: main.o lbfile.so.1
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_DYN)
 
-main_static: main.o
+main_static: main.o lbfile.a
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_STATIC)
 
 %.o: %.c
@@ -33,7 +32,9 @@ lbfile.so.1: bfile.o format_in_out.o
 	gcc -shared -o lbfile.so.1 bfile.o format_in_out.o
 	export LD_LIBRARY_PATH=.
 
-$(LIBS): lbfile.a lbfile.so.1
+libs: lbfile.a lbfile.so.1
+
+.PHONY:libs
 
 tests: all
 	./script_test.sh
