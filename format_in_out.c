@@ -6,6 +6,11 @@
 #include <sys/types.h>
 #include <string.h>
 
+/**
+ *Le but de la fonction est convertir le paramètre entier reçu à un pointeur
+ * de type char pour ecrire cette type de donnée dans la structure de type
+ *FICHIER.
+ */
 char * convert_int_to_str(int x)
 {
     static char buff[11];
@@ -23,12 +28,22 @@ char * convert_int_to_str(int x)
     }while(n > 0);
     return res;
 }
-
+/**
+ *Le but de la fonction est identifier quand le paramètre de la chaine reçu
+ *c'est un separator.
+ */
 unsigned is_separator(char c)
 {
     return (c=='\n' || c==' ' || c=='\t' || c=='\0');
 }
 
+/**
+ *Le but de la fonction est ecrire avec la fonction bWrite dans la structure
+ *de type FICHIER un nombre variable de paramètres(format). Il faut 
+ *parcourir la chaine reçu, caractère par caractère jusqu'au prochain %
+ *en identifiant le type de donnée manipulés (caractère,chaı̂ne ou entier)
+ *pour que selon le cas definir les paramètres d'ecriture.
+ */
 int fbWrite(bfile * bf, char * format, ...)
 {
     char * str, *s, c;
@@ -39,7 +54,7 @@ int fbWrite(bfile * bf, char * format, ...)
     va_start(arg, format);
 
     //On parcourt la chaîne a écrire
-    
+  
     for(str=format; *str!='\0'; str++)
     {
         //on parcourt jusqu'au prochain %
@@ -80,8 +95,14 @@ int fbWrite(bfile * bf, char * format, ...)
     
     return count;
 }
-
-
+/**
+ *Le but de la fonction est lire avec la fonction bRead la structure
+ *de type FICHIER un nombre variable de paramètres(format). Il faut 
+ *parcourir la chaine reçu, caractère par caractère jusqu'au prochain %
+ *en identifiant le type de donnée manipulés (caractère,chaı̂ne ou entier) 
+ *pour que selon le cas definir les paramètres de lecture et reasignar
+ *un bloque de memoria.
+ */
 int fbRead(bfile * bf,  char * format, ...)
 {
     char * str, *s,s1[N],*s2, c, * c1;
@@ -92,8 +113,7 @@ int fbRead(bfile * bf,  char * format, ...)
     bRead(s1, 1, N, bf);
     va_start(arg, format);
 
-    //On parcourt la chaîne a écrire
-    
+    //On parcourt la chaîne a lire
     for(str=format; *str!='\0'; str++)
     {
         //on parcourt jusqu'au prochain %
@@ -101,7 +121,6 @@ int fbRead(bfile * bf,  char * format, ...)
         {
             str++;
         }
-        
         //On récupert le caractère suivant le %
         str++;
         c = *str;
