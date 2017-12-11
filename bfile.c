@@ -78,20 +78,11 @@ int bClose(bfile * bf)
     return ret;
 }
 /**
- *Le but de la fonction est écrit
- *
-int ecrire(void *p, unsigned int taille, unsigned int nbelem, FICHIER *f);
-écrit nbelem éléments de données tenant sur taille octets stockés à l’emplacement mémoire
-pointé par p dans le fichier pointé par f. 
-La fonction ecrire retourne le nombre d’éléments écrits. 
-    
-Le fichier doit avoir été ouvert en mode ’E’. 
-    
-    
-données devront être écrites dans le tampon contenu dans f qui ne devra être lui-même écrit à
-l’aide d’un write qu’en cas de besoin.
-*/
-
+ *Le but de la fonction est écrit nb_element sur size octets stockés à l’emplacement mémoire
+ *pointé par p, dans le tampon contenu de la structure pointé de type FICHIER qui a été ouvert
+ *en mode 'E'  
+ *La fonction bWrite retourne le nombre d’éléments écrits. 
+ */
 int bWrite(void * p, int size, int nb_element, bfile * bf)
 {
     if(bf == NULL || p == NULL)
@@ -127,6 +118,22 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
     return ret;
 }
 
+/**
+ *Le but de la fonction est lire nb_element sur size octets stockés à l’emplacement mémoire
+ *pointé par p, dans le tampon contenu de la structure pointé de type FICHIER qui a été ouvert
+ *en mode 'E'  
+ *La fonction bWrite retourne le nombre d’éléments écrits. 
+ 
+ int lire(void *p, unsigned int taille, unsigned int nbelem, FICHIER *f);
+lit nbelem éléments de données tenant chacun sur taille octets, depuis le fichier pointé par f et
+les stocke à l’emplacement mémoire pointé par p. La fonction lire retourne le nombre d’éléments
+lus. Le fichier doit avoir prélablement été ouvert en mode ’L’. Cette fonction devra lire depuis
+le tampon contenu dans f en remplissant ce tampon à l’aide d’un read uniquement en cas de
+besoin.
+ 
+ 
+ 
+ */
 int bRead(void * p, int size, int nb_element, bfile * bf)
 {
 
@@ -164,7 +171,11 @@ int bRead(void * p, int size, int nb_element, bfile * bf)
     
     return ret;
 }
-
+/**
+ **Le but de la fonction est libérée le fichier pointé sur la structure de
+ *donnée de type FICHIER.
+ *
+ */
 int bFlush(bfile * bf)
 {
     int ret = fwrite(bf -> buffer, 1,bf->buffer_seek, bf -> f);
@@ -173,7 +184,10 @@ int bFlush(bfile * bf)
     
     return ret;
 }
-
+/**
+ **Le but de la fonction est remplir le fichier pointé sur la structure de
+ *donnée de type FICHIER.
+ */
 int bFill(bfile * bf)
 {
     int ret =  fread(bf -> buffer, 1,bf -> size_buffer, bf ->f);
