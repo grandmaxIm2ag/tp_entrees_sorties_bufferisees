@@ -119,20 +119,10 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
 }
 
 /**
- *Le but de la fonction est lire nb_element sur size octets stockés à l’emplacement mémoire
- *pointé par p, dans le tampon contenu de la structure pointé de type FICHIER qui a été ouvert
- *en mode 'E'  
- *La fonction bWrite retourne le nombre d’éléments écrits. 
- 
- int lire(void *p, unsigned int taille, unsigned int nbelem, FICHIER *f);
-lit nbelem éléments de données tenant chacun sur taille octets, depuis le fichier pointé par f et
-les stocke à l’emplacement mémoire pointé par p. La fonction lire retourne le nombre d’éléments
-lus. Le fichier doit avoir prélablement été ouvert en mode ’L’. Cette fonction devra lire depuis
-le tampon contenu dans f en remplissant ce tampon à l’aide d’un read uniquement en cas de
-besoin.
- 
- 
- 
+ *Le but de la fonction est lire nb_element, chacun sur size octets depuis le tampon contenu dans
+ *la structure pointé de type FICHIER qui a été ouvert en mode 'L'  et les stocke à l’emplacement
+ *mémoire pointé par p. 
+ *La fonction bRead retourne le nombre d’éléments lus. 
  */
 int bRead(void * p, int size, int nb_element, bfile * bf)
 {
