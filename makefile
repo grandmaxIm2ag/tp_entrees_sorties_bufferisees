@@ -16,6 +16,7 @@ test_format:test_format.o bfile.o format_in_out.o
 
 generator: generator.o 
 	$(CC) -o $@ $^ $(LDFLAGS)
+
 main_dyn: main.o
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_DYN)
 
@@ -26,7 +27,7 @@ main_static: main.o
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 lbfile.a: bfile.o format_in_out.o
-	ar q lbfile.a bfile.o format_in_out.o
+	ar rcs lbfile.a bfile.o format_in_out.o
 
 lbfile.so.1: bfile.o format_in_out.o
 	gcc -shared -o lbfile.so.1 bfile.o format_in_out.o
