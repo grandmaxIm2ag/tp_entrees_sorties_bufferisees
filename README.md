@@ -17,8 +17,8 @@ dans un autre fichier. Ce programme est compilé normalement.
 ```shell
 ./main <filename1> <filename2>
 ```
-* <filename1> : Le fichier à lire
-* <filename2> : Le fichier à écrire
+* filename1 : Le fichier à lire
+* filename2 : Le fichier à écrire
 
 ### main_static
 
@@ -29,8 +29,8 @@ statique.
 ```shell
 ./main_static <filename1> <filename2>
 ```
-* <filename1> : Le fichier à lire
-* <filename2> : Le fichier à écrire
+* filename1 : Le fichier à lire
+* filename2 : Le fichier à écrire
 
 ### main_dyn
 
@@ -41,8 +41,8 @@ dynamique.
 ```shell
 ./main_dyn <filename1> <filename2>
 ```
-* <filename1> : Le fichier à lire
-* <filename2> : Le fichier à écrire
+* filename1 : Le fichier à lire
+* filename2 : Le fichier à écrire
 
 ### generator
 
@@ -52,7 +52,7 @@ un fichier.
 ```shell
 ./generator <filename>
 ```
-* <filename> : Le fichier cible
+* filename : Le fichier cible
 
 ### test_format
 
@@ -62,7 +62,7 @@ et verifie que les valeurs lues sont toujours les mêmes.
 ```shell
 ./test_format <filename1>
 ```
-* <filename1> : Le fichier où sera écrite puis lue la chaîne formatée
+* filename1 : Le fichier où sera écrite puis lue la chaîne formatée
 
 ## Tests
 

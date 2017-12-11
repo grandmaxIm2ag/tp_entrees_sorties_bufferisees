@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: format_in_out.c File Reference</title>
+<title>Entrées et Sorties Bufferisées: format_in_out.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Entrées et Sorties Bufferisées
    </div>
   </td>
  </tr>
@@ -87,6 +87,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">format_in_out.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implémentation des écritures et lectures formatées.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;include/format_in_out.h&quot;</code><br />
 <code>#include &quot;include/bfile.h&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -98,28 +101,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Include dependency graph for format_in_out.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="format__in__out_8c__incl.png" border="0" usemap="#format__in__out_8c" alt=""/></div>
-<map name="format__in__out_8c" id="format__in__out_8c">
-</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0e1b7bbeaceb7e5718f0102f42792c70"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format__in__out_8c.html#a0e1b7bbeaceb7e5718f0102f42792c70">convert_int_to_str</a> (int x)</td></tr>
-<tr class="separator:a0e1b7bbeaceb7e5718f0102f42792c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc263f0c9d604a89338acf5753d94fc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format__in__out_8c.html#a3dc263f0c9d604a89338acf5753d94fc">convert_int_to_str</a> (int x)</td></tr>
+<tr class="memdesc:a3dc263f0c9d604a89338acf5753d94fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est de convertir un entier en chaîne.  <a href="#a3dc263f0c9d604a89338acf5753d94fc">More...</a><br /></td></tr>
+<tr class="separator:a3dc263f0c9d604a89338acf5753d94fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40f14404c0a83290ce9b3eec7e74f98d"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format__in__out_8c.html#a40f14404c0a83290ce9b3eec7e74f98d">is_separator</a> (char c)</td></tr>
+<tr class="memdesc:a40f14404c0a83290ce9b3eec7e74f98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est de vérifier qu'un caractère est un séparateur ou non.  <a href="#a40f14404c0a83290ce9b3eec7e74f98d">More...</a><br /></td></tr>
 <tr class="separator:a40f14404c0a83290ce9b3eec7e74f98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff97b9e54df890f6a3619d783a13eeaa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format__in__out_8c.html#aff97b9e54df890f6a3619d783a13eeaa">fbWrite</a> (<a class="el" href="structbfile.html">bfile</a> *bf, char *format,...)</td></tr>
+<tr class="memdesc:aff97b9e54df890f6a3619d783a13eeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est d'écrire la chaîne format dans bf-&gt;f en remplaçant les % par les valeurs des variables.  <a href="#aff97b9e54df890f6a3619d783a13eeaa">More...</a><br /></td></tr>
 <tr class="separator:aff97b9e54df890f6a3619d783a13eeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f07ba0af0839a65f606c943bba445e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="format__in__out_8c.html#a58f07ba0af0839a65f606c943bba445e">fbRead</a> (<a class="el" href="structbfile.html">bfile</a> *bf, char *format,...)</td></tr>
+<tr class="memitem:a58f07ba0af0839a65f606c943bba445e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58f07ba0af0839a65f606c943bba445e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fbRead</b> (<a class="el" href="structbfile.html">bfile</a> *bf, char *format,...)</td></tr>
 <tr class="separator:a58f07ba0af0839a65f606c943bba445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0e1b7bbeaceb7e5718f0102f42792c70"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implémentation des écritures et lectures formatées. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3dc263f0c9d604a89338acf5753d94fc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* convert_int_to_str </td>
+          <td class="memname">char * convert_int_to_str </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -128,37 +135,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a58f07ba0af0839a65f606c943bba445e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int fbRead </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbfile.html">bfile</a> *&#160;</td>
-          <td class="paramname"><em>bf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Le but de la fonction est de convertir un entier en chaîne. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>: l'entier à converir en chaîne</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Une chaîne de caractère </dd></dl>
 
 </div>
 </div>
@@ -192,6 +176,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Le but de la fonction est d'écrire la chaîne format dans bf-&gt;f en remplaçant les % par les valeurs des variables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bf</td><td>: la structure du fichier bufférisé </td></tr>
+    <tr><td class="paramname">format</td><td>: La chaîne formatée </td></tr>
+    <tr><td class="paramname">...</td><td>: Les différentes variables à écrire</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Le nombre d'octet écrit </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a40f14404c0a83290ce9b3eec7e74f98d"></a>
@@ -207,6 +202,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Le but de la fonction est de vérifier qu'un caractère est un séparateur ou non. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>: lcaractère à tester</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Un booléen, true si c est séparateur, false sinon </dd></dl>
 
 </div>
 </div>

@@ -13,7 +13,6 @@
 #include <string.h>
 
 /**
-<<<<<<< HEAD
  * \fn char * convert_int_to_str(int x)
  *
  * \param x : l'entier à converir en chaîne
@@ -21,11 +20,6 @@
  * \return Une chaîne de caractère
  *
  * \brief Le but de la fonction est de convertir un entier en chaîne.
-=======
- *Le but de la fonction est convertir le paramètre entier reçu à un pointeur
- * de type char pour ecrire cette type de donnée dans la structure de type
- *FICHIER.
->>>>>>> 19b4baf669aeb9abcfcc06192ca3a7e208174387
  */
 char * convert_int_to_str(int x)
 {
@@ -44,7 +38,6 @@ char * convert_int_to_str(int x)
     }while(n > 0);
     return res;
 }
-<<<<<<< HEAD
 
 
 /**
@@ -56,11 +49,6 @@ char * convert_int_to_str(int x)
  *
  * \brief Le but de la fonction est de vérifier qu'un caractère est un 
  * séparateur ou non.
-=======
-/**
- *Le but de la fonction est identifier quand le paramètre de la chaine reçu
- *c'est un separator.
->>>>>>> 19b4baf669aeb9abcfcc06192ca3a7e208174387
  */
 unsigned is_separator(char c)
 {
@@ -68,7 +56,6 @@ unsigned is_separator(char c)
 }
 
 /**
-<<<<<<< HEAD
  * \fn int fbWrite(bfile * bf, char * format, ...)
  *
  * \param bf : la structure du fichier bufférisé
@@ -79,13 +66,6 @@ unsigned is_separator(char c)
  *
  * \brief Le but de la fonction est d'écrire la chaîne format dans bf->f
  * en remplaçant les % par les valeurs des variables.
-=======
- *Le but de la fonction est ecrire avec la fonction bWrite dans la structure
- *de type FICHIER un nombre variable de paramètres(format). Il faut 
- *parcourir la chaine reçu, caractère par caractère jusqu'au prochain %
- *en identifiant le type de donnée manipulés (caractère,chaı̂ne ou entier)
- *pour que selon le cas definir les paramètres d'ecriture.
->>>>>>> 19b4baf669aeb9abcfcc06192ca3a7e208174387
  */
 int fbWrite(bfile * bf, char * format, ...)
 {
@@ -138,7 +118,6 @@ int fbWrite(bfile * bf, char * format, ...)
     
     return count;
 }
-<<<<<<< HEAD
 
 /**
  * \fn int fbread(bfile * bf, char * format, ...)
@@ -151,15 +130,6 @@ int fbWrite(bfile * bf, char * format, ...)
  *
  * \brief Le but de la fonction est de lire la chaîne format dans bf->f
  * en écrivant les valeurs des % dans la mémoire pointée par les variables.
-=======
-/**
- *Le but de la fonction est lire avec la fonction bRead la structure
- *de type FICHIER un nombre variable de paramètres(format). Il faut 
- *parcourir la chaine reçu, caractère par caractère jusqu'au prochain %
- *en identifiant le type de donnée manipulés (caractère,chaı̂ne ou entier) 
- *pour que selon le cas definir les paramètres de lecture et reasignar
- *un bloque de memoria.
->>>>>>> 19b4baf669aeb9abcfcc06192ca3a7e208174387
  */
 int fbRead(bfile * bf,  char * format, ...)
 {

@@ -1,5 +1,5 @@
 /**
- * \file file.c
+ * \file bfile.c
  *
  * \brief Implémentation des écritures et lectures bufférisées
  */

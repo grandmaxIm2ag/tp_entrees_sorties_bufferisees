@@ -1,5 +1,10 @@
 \section{bfile.\+c File Reference}
 \label{bfile_8c}\index{bfile.\+c@{bfile.\+c}}
+
+
+Implémentation des écritures et lectures bufférisées.  
+
+
 {\ttfamily \#include \char`\"{}include/format\+\_\+in\+\_\+out.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}include/bfile.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
@@ -34,6 +39,11 @@ int {\bf b\+Flush} ({\bf bfile} $\ast$bf)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est xde vider le tampon dans le fichier f. \end{DoxyCompactList}\item 
 int {\bf b\+Fill} ({\bf bfile} $\ast$bf)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est de remplir le tampon avec le fichier f. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implémentation des écritures et lectures bufférisées. 
+
 
 
 \subsection{Function Documentation}
