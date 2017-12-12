@@ -14,11 +14,8 @@
 
 /**
  * \fn char * convert_int_to_str(int x)
- *
  * \param x : l'entier à converir en chaîne
- *
  * \return Une chaîne de caractère
- *
  * \brief Le but de la fonction est de convertir un entier en chaîne.
  */
 char * convert_int_to_str(int x)
@@ -42,11 +39,8 @@ char * convert_int_to_str(int x)
 
 /**
  * \fn unsigned is_separator(char c)
- *
- * \param c : lcaractère à tester
- *
+ * \param c : le caractère à tester
  * \return Un booléen, true si c est séparateur, false sinon
- *
  * \brief Le but de la fonction est de vérifier qu'un caractère est un 
  * séparateur ou non.
  */
@@ -57,13 +51,10 @@ unsigned is_separator(char c)
 
 /**
  * \fn int fbWrite(bfile * bf, char * format, ...)
- *
  * \param bf : la structure du fichier bufférisé
  * \param format : La chaîne formatée
  * \param ... : Les différentes variables à écrire
- *
  * \return Le nombre d'octet écrit
- *
  * \brief Le but de la fonction est d'écrire la chaîne format dans bf->f
  * en remplaçant les % par les valeurs des variables.
  */
@@ -72,12 +63,11 @@ int fbWrite(bfile * bf, char * format, ...)
     char * str, *s, c;
     
     int x, count=0;
-    
+    //contient des informations sur les arguments variables
     va_list arg; 
     va_start(arg, format);
 
-    //On parcourt la chaîne a écrire
-  
+    //On parcourt la chaîne a écrire 
     for(str=format; *str!='\0'; str++)
     {
         //on parcourt jusqu'au prochain %
@@ -94,17 +84,20 @@ int fbWrite(bfile * bf, char * format, ...)
         c = *str;
         switch(c)
         {
+        //cas dont le caractère est un entier : %d
         case 'd':
             x = va_arg(arg,int);
             s = convert_int_to_str(x);
             count ++;
             bWrite(s, sizeof(s), 1, bf);
             break;
+        //cas dont le caractère est un caractère : %c
         case 'c':
             c = va_arg(arg,int);
             count ++;
             bWrite(&c, 1, 1, bf);
             break;
+        //cas dont le caractère est une chaı̂ne : %s
         case 's':
             s = va_arg(arg,char*);
             count ++;
@@ -121,13 +114,10 @@ int fbWrite(bfile * bf, char * format, ...)
 
 /**
  * \fn int fbread(bfile * bf, char * format, ...)
- *
  * \param bf : la structure du fichier bufférisé
  * \param format : La chaîne formatée
  * \param ... : Les différents pointeurs des variables à écrire
- *
  * \return Le nombre d'octet lus
- *
  * \brief Le but de la fonction est de lire la chaîne format dans bf->f
  * en écrivant les valeurs des % dans la mémoire pointée par les variables.
  */
@@ -137,6 +127,7 @@ int fbRead(bfile * bf,  char * format, ...)
     s2 = (char *)malloc(N);
     int *x, count=0, seek=0, k, j;
     unsigned b = 1, b2;
+    //contient des informations sur les arguments variables
     va_list arg;
     bRead(s1, 1, N, bf);
     va_start(arg, format);
@@ -154,6 +145,7 @@ int fbRead(bfile * bf,  char * format, ...)
         c = *str;
         switch(c)
         {
+        //cas dont le caractère est un entier : %d
         case 'd':
             x = (int *)va_arg(arg,int*);
             k=0;
@@ -187,12 +179,14 @@ int fbRead(bfile * bf,  char * format, ...)
             *x = atoi(s2);
             count ++;
             break;
+        //cas dont le caractère est un caractère : %c
         case 'c':
             c1 = (char *) va_arg(arg,char*);
             *c1 = s1[seek++];
             count ++;
             seek++;
             break;
+        //cas dont le caractère est une chaı̂ne : %s
         case 's':
             s = (char *)va_arg(arg,char*);
             b2=1;
