@@ -11,8 +11,9 @@ make all
 
 ### main
 
-Ce programme lit un fichier donné en argument, et écrit le contenu lu
-dans un autre fichier. Ce programme est compilé normalement.
+Ce programme lit un fichier donné comme premier argument,
+et écrit le contenu lu dans un autre fichier donné comme
+deuxième argument. Ce programme est compilé normalement.
 
 ```shell
 ./main <filename1> <filename2>
@@ -22,9 +23,10 @@ dans un autre fichier. Ce programme est compilé normalement.
 
 ### main_static
 
-Ce programme lit un fichier donné en argument, et écrit le contenu lu
-dans un autre fichier. Ce programme est compilé avec une bibliothèque
-statique.
+Ce programme lit un fichier donné comme premier argument,
+et écrit le contenu lu dans un autre fichier donné comme
+deuxième argument. Ce programme est compilé avec une
+bibliothèque statique.
 
 ```shell
 ./main_static <filename1> <filename2>
@@ -34,8 +36,9 @@ statique.
 
 ### main_dyn
 
-Ce programme lit un fichier donné en argument, et écrit le contenu lu
-dans un autre fichier. Ce programme est compilé avec une bibliothèque
+Ce programme lit un fichier donné comme premier argument,
+et écrit le contenu lu dans un autre fichier donné comme
+deuxième argument. . Ce programme est compilé avec une bibliothèque
 dynamique.
 
 ```shell
@@ -46,8 +49,7 @@ dynamique.
 
 ### generator
 
-Ce programme écrit un fichier au contenu et à la taille aléatoire dans
-un fichier.
+Ce programme écrit un fichier au contenu et à la taille aléatoire. 
 
 ```shell
 ./generator <filename>
