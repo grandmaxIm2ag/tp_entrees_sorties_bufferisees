@@ -1,18 +1,12 @@
-\section{bfile.\+c File Reference}
+\hypertarget{bfile_8c}{}\section{bfile.\+c File Reference}
 \label{bfile_8c}\index{bfile.\+c@{bfile.\+c}}
-
-
-Implémentation des écritures et lectures bufférisées.  
-
-
 {\ttfamily \#include \char`\"{}include/format\+\_\+in\+\_\+out.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}include/bfile.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$stdio.\+h$>$}\\*
 {\ttfamily \#include $<$stdlib.\+h$>$}\\*
 {\ttfamily \#include $<$stdarg.\+h$>$}\\*
 {\ttfamily \#include $<$sys/types.\+h$>$}\\*
-Include dependency graph for bfile.\+c\+:
-\nopagebreak
+Include dependency graph for bfile.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,45 +16,43 @@ Include dependency graph for bfile.\+c\+:
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct {\bf bfile}
-\begin{DoxyCompactList}\small\item\em Structure pour les écritures et lectures bufferisées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \hyperlink{structbfile}{bfile}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bf bfile} $\ast$ {\bf b\+Open} (const char $\ast$path, char mode)
+\hyperlink{structbfile}{bfile} $\ast$ \hyperlink{bfile_8c_ade9460a260a2d4967ba770011bef83fd}{b\+Open} (const char $\ast$path, char mode)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est d\textquotesingle{}ouvrir le fichier path avec le mode d\textquotesingle{}ouverture en lecture \textquotesingle{}L\textquotesingle{} ou en écriture \textquotesingle{}E\textquotesingle{} et d\textquotesingle{}allouer la structure de bfile avec son tampon et son fichier. La fonction renvoie N\+U\+LL si le fichier ne peut pas être ouvert, un bfile sinon. \end{DoxyCompactList}\item 
-int {\bf b\+Close} ({\bf bfile} $\ast$bf)
+int \hyperlink{bfile_8c_a8e8ade7f5d2f2a5d15d1f55e29ebe37c}{b\+Close} (\hyperlink{structbfile}{bfile} $\ast$bf)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est de fermer et libérée le fichier pointé sur la structure de donnée de type bfile. \end{DoxyCompactList}\item 
-int {\bf b\+Write} (void $\ast$p, int size, int nb\+\_\+element, {\bf bfile} $\ast$bf)
-\begin{DoxyCompactList}\small\item\em Le but de la fonction est d\textquotesingle{}écrire nb\+\_\+element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon. \end{DoxyCompactList}\item 
-int {\bf b\+Read} (void $\ast$p, int size, int nb\+\_\+element, {\bf bfile} $\ast$bf)
-\begin{DoxyCompactList}\small\item\em Le but de la fonction est de lire nb\+\_\+element de size octets dans bf et y stocker à l’emplacement mémoire pointé par p/. \end{DoxyCompactList}\item 
-int {\bf b\+Flush} ({\bf bfile} $\ast$bf)
+int \hyperlink{bfile_8c_a6c435b2c42c2018b3aa726717b14dfa5}{b\+Write} (void $\ast$p, int size, int nb\+\_\+element, \hyperlink{structbfile}{bfile} $\ast$bf)
+\begin{DoxyCompactList}\small\item\em Le but de la fonction est d\textquotesingle{}écrire nb\+\_\+element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon contenu dans bf. \end{DoxyCompactList}\item 
+int \hyperlink{bfile_8c_a5e4cf066a33f4d82aa991ab71c7053dc}{b\+Read} (void $\ast$p, int size, int nb\+\_\+element, \hyperlink{structbfile}{bfile} $\ast$bf)
+\begin{DoxyCompactList}\small\item\em Le but de la fonction est de lire nb\+\_\+element de size octets dans le tampon contenu dans bf et y stocker à l’emplacement mémoire pointé par p/. \end{DoxyCompactList}\item 
+int \hyperlink{bfile_8c_a7b4b368e4c7ce8305cff87f5461cbca2}{b\+Flush} (\hyperlink{structbfile}{bfile} $\ast$bf)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est xde vider le tampon dans le fichier f. \end{DoxyCompactList}\item 
-int {\bf b\+Fill} ({\bf bfile} $\ast$bf)
+int \hyperlink{bfile_8c_ad9ef0d4831a1c1b5b59fdc7e6028c304}{b\+Fill} (\hyperlink{structbfile}{bfile} $\ast$bf)
 \begin{DoxyCompactList}\small\item\em Le but de la fonction est de remplir le tampon avec le fichier f. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Implémentation des écritures et lectures bufférisées. 
-
-
+émentation des écritures et lectures bufférisées 
 
 \subsection{Function Documentation}
 \index{bfile.\+c@{bfile.\+c}!b\+Close@{b\+Close}}
 \index{b\+Close@{b\+Close}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Close(bfile $\ast$bf)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Close (
+\subsubsection[{\texorpdfstring{b\+Close(bfile $\ast$bf)}{bClose(bfile *bf)}}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Close (
 \begin{DoxyParamCaption}
 \item[{{\bf bfile} $\ast$}]{bf}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_a8e8ade7f5d2f2a5d15d1f55e29ebe37c}
+)}\hypertarget{bfile_8c_a8e8ade7f5d2f2a5d15d1f55e29ebe37c}{}\label{bfile_8c_a8e8ade7f5d2f2a5d15d1f55e29ebe37c}
 
 
 Le but de la fonction est de fermer et libérée le fichier pointé sur la structure de donnée de type bfile. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em bf} & \+: la structure à fermer\\
+{\em bf} & \+: la structure à ferme \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -68,18 +60,18 @@ Un entier retourné par la fonction fclose
 \end{DoxyReturn}
 \index{bfile.\+c@{bfile.\+c}!b\+Fill@{b\+Fill}}
 \index{b\+Fill@{b\+Fill}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Fill(bfile $\ast$bf)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Fill (
+\subsubsection[{\texorpdfstring{b\+Fill(bfile $\ast$bf)}{bFill(bfile *bf)}}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Fill (
 \begin{DoxyParamCaption}
 \item[{{\bf bfile} $\ast$}]{bf}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_ad9ef0d4831a1c1b5b59fdc7e6028c304}
+)}\hypertarget{bfile_8c_ad9ef0d4831a1c1b5b59fdc7e6028c304}{}\label{bfile_8c_ad9ef0d4831a1c1b5b59fdc7e6028c304}
 
 
 Le but de la fonction est de remplir le tampon avec le fichier f. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em bf} & \\
+{\em bf} & la structure bfile \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -87,18 +79,18 @@ Le nombre d\textquotesingle{}octet lu dans le fichier
 \end{DoxyReturn}
 \index{bfile.\+c@{bfile.\+c}!b\+Flush@{b\+Flush}}
 \index{b\+Flush@{b\+Flush}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Flush(bfile $\ast$bf)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Flush (
+\subsubsection[{\texorpdfstring{b\+Flush(bfile $\ast$bf)}{bFlush(bfile *bf)}}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Flush (
 \begin{DoxyParamCaption}
 \item[{{\bf bfile} $\ast$}]{bf}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_a7b4b368e4c7ce8305cff87f5461cbca2}
+)}\hypertarget{bfile_8c_a7b4b368e4c7ce8305cff87f5461cbca2}{}\label{bfile_8c_a7b4b368e4c7ce8305cff87f5461cbca2}
 
 
 Le but de la fonction est xde vider le tampon dans le fichier f. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em bf} & \\
+{\em bf} & la structure bfile \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -106,12 +98,12 @@ Le nombre d\textquotesingle{}octet écrit dans le fichier
 \end{DoxyReturn}
 \index{bfile.\+c@{bfile.\+c}!b\+Open@{b\+Open}}
 \index{b\+Open@{b\+Open}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Open(const char $\ast$path, char mode)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bfile} $\ast$ b\+Open (
+\subsubsection[{\texorpdfstring{b\+Open(const char $\ast$path, char mode)}{bOpen(const char *path, char mode)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bfile} $\ast$ b\+Open (
 \begin{DoxyParamCaption}
 \item[{const char $\ast$}]{path, }
 \item[{char}]{mode}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_ade9460a260a2d4967ba770011bef83fd}
+)}\hypertarget{bfile_8c_ade9460a260a2d4967ba770011bef83fd}{}\label{bfile_8c_ade9460a260a2d4967ba770011bef83fd}
 
 
 Le but de la fonction est d\textquotesingle{}ouvrir le fichier path avec le mode d\textquotesingle{}ouverture en lecture \textquotesingle{}L\textquotesingle{} ou en écriture \textquotesingle{}E\textquotesingle{} et d\textquotesingle{}allouer la structure de bfile avec son tampon et son fichier. La fonction renvoie N\+U\+LL si le fichier ne peut pas être ouvert, un bfile sinon. 
@@ -128,17 +120,17 @@ le bfile créé
 \end{DoxyReturn}
 \index{bfile.\+c@{bfile.\+c}!b\+Read@{b\+Read}}
 \index{b\+Read@{b\+Read}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Read(void $\ast$p, int size, int nb\+\_\+element, bfile $\ast$bf)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Read (
+\subsubsection[{\texorpdfstring{b\+Read(void $\ast$p, int size, int nb\+\_\+element, bfile $\ast$bf)}{bRead(void *p, int size, int nb_element, bfile *bf)}}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Read (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{p, }
 \item[{int}]{size, }
 \item[{int}]{nb\+\_\+element, }
 \item[{{\bf bfile} $\ast$}]{bf}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_a5e4cf066a33f4d82aa991ab71c7053dc}
+)}\hypertarget{bfile_8c_a5e4cf066a33f4d82aa991ab71c7053dc}{}\label{bfile_8c_a5e4cf066a33f4d82aa991ab71c7053dc}
 
 
-Le but de la fonction est de lire nb\+\_\+element de size octets dans bf et y stocker à l’emplacement mémoire pointé par p/. 
+Le but de la fonction est de lire nb\+\_\+element de size octets dans le tampon contenu dans bf et y stocker à l’emplacement mémoire pointé par p/. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -148,7 +140,7 @@ Le but de la fonction est de lire nb\+\_\+element de size octets dans bf et y st
 \hline
 {\em nb\+\_\+element} & \+: le nombre de fois que nous lisons. \\
 \hline
-{\em bf} & \\
+{\em bf} & la structure bfile \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -156,17 +148,17 @@ Le nombre d’octets lus.
 \end{DoxyReturn}
 \index{bfile.\+c@{bfile.\+c}!b\+Write@{b\+Write}}
 \index{b\+Write@{b\+Write}!bfile.\+c@{bfile.\+c}}
-\subsubsection[{b\+Write(void $\ast$p, int size, int nb\+\_\+element, bfile $\ast$bf)}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Write (
+\subsubsection[{\texorpdfstring{b\+Write(void $\ast$p, int size, int nb\+\_\+element, bfile $\ast$bf)}{bWrite(void *p, int size, int nb_element, bfile *bf)}}]{\setlength{\rightskip}{0pt plus 5cm}int b\+Write (
 \begin{DoxyParamCaption}
 \item[{void $\ast$}]{p, }
 \item[{int}]{size, }
 \item[{int}]{nb\+\_\+element, }
 \item[{{\bf bfile} $\ast$}]{bf}
 \end{DoxyParamCaption}
-)}\label{bfile_8c_a6c435b2c42c2018b3aa726717b14dfa5}
+)}\hypertarget{bfile_8c_a6c435b2c42c2018b3aa726717b14dfa5}{}\label{bfile_8c_a6c435b2c42c2018b3aa726717b14dfa5}
 
 
-Le but de la fonction est d\textquotesingle{}écrire nb\+\_\+element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon. 
+Le but de la fonction est d\textquotesingle{}écrire nb\+\_\+element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon contenu dans bf. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -176,9 +168,9 @@ Le but de la fonction est d\textquotesingle{}écrire nb\+\_\+element de size oct
 \hline
 {\em nb\+\_\+element} & \+: le nombre de fois où on écrit. \\
 \hline
-{\em bf} & \\
+{\em bf} & la structure bfile \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-le nombre d’octets écrits 
+le nombre d’éléments écrits 
 \end{DoxyReturn}

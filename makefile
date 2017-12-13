@@ -17,6 +17,7 @@ generator: generator.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 main_dyn: main.o lbfile.so.1
+	export LD_LIBRARY_PATH=.
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_DYN)
 
 main_static: main.o lbfile.a
@@ -30,7 +31,6 @@ lbfile.a: bfile.o format_in_out.o
 
 lbfile.so.1: bfile.o format_in_out.o
 	gcc -shared -o lbfile.so.1 bfile.o format_in_out.o
-	export LD_LIBRARY_PATH=.
 
 libs: lbfile.a lbfile.so.1
 

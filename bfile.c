@@ -52,13 +52,14 @@ bfile * bOpen(const char * path, char mode){
         return NULL;
     }
     
-    /**Ouverture du fichier avec le nom path, dont contenant un mode d'accès E au fichier 
-     *pour créer un fichier vide pour les opérations de sortie ou ouvrir le fichier pour
-     *les opérations d'entrée.
+    /*
+     * Ouverture du fichier avec le nom path, dont contenant un mode d'accès E au fichier 
+     * pour créer un fichier vide pour les opérations de sortie ou ouvrir le fichier pour
+     * les opérations d'entrée.
      */
     FILE * f = fopen( path , ((mode == 'E') ? "w+" : "r") );
 
-    //Si le pointeur ver un objet FILE est NULL, return NULL 
+    //Si pointeur NULL, alors on revoie NULL 
     if(f == NULL)
     {
         return NULL;
@@ -92,7 +93,7 @@ bfile * bOpen(const char * path, char mode){
  */
 int bClose(bfile * bf)
 {
-    //Si le pointeur d'objet bfile est NULL, sino la fonction renvoi -1
+    //Si le pointeur d'objet bfile est NULL, la fonction renvoi -1
     if(bf == NULL)
     {
         return -1;
@@ -103,10 +104,11 @@ int bClose(bfile * bf)
     {
         bFlush(bf);
     }
+    
     //Ferme le fichier f associé au flux 
     int ret = fclose(bf->f);
 
-    //Libère la mémoire précédemment allouée par un appel à malloc
+    //Libère la mémoire précédemment allouée mlors de l'ouverture
     free(bf -> buffer);
     free(bf);
     

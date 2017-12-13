@@ -1,0 +1,43 @@
+\begin{theindex}
+
+  \item {b\+Close}
+    \subitem {bfile.\+c}, \hyperpage{10}
+  \item {b\+Fill}
+    \subitem {bfile.\+c}, \hyperpage{10}
+  \item {b\+Flush}
+    \subitem {bfile.\+c}, \hyperpage{10}
+  \item {b\+Open}
+    \subitem {bfile.\+c}, \hyperpage{11}
+  \item {b\+Read}
+    \subitem {bfile.\+c}, \hyperpage{11}
+  \item {b\+Write}
+    \subitem {bfile.\+c}, \hyperpage{11}
+  \item {bfile}, \hyperpage{7}
+  \item {bfile.\+c}, \hyperpage{9}
+    \subitem {b\+Close}, \hyperpage{10}
+    \subitem {b\+Fill}, \hyperpage{10}
+    \subitem {b\+Flush}, \hyperpage{10}
+    \subitem {b\+Open}, \hyperpage{11}
+    \subitem {b\+Read}, \hyperpage{11}
+    \subitem {b\+Write}, \hyperpage{11}
+
+  \indexspace
+
+  \item {convert\+\_\+int\+\_\+to\+\_\+str}
+    \subitem {format\+\_\+in\+\_\+out.\+c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {fb\+Write}
+    \subitem {format\+\_\+in\+\_\+out.\+c}, \hyperpage{14}
+  \item {format\+\_\+in\+\_\+out.\+c}, \hyperpage{12}
+    \subitem {convert\+\_\+int\+\_\+to\+\_\+str}, \hyperpage{13}
+    \subitem {fb\+Write}, \hyperpage{14}
+    \subitem {is\+\_\+separator}, \hyperpage{14}
+
+  \indexspace
+
+  \item {is\+\_\+separator}
+    \subitem {format\+\_\+in\+\_\+out.\+c}, \hyperpage{14}
+
+\end{theindex}

@@ -84,20 +84,20 @@ int fbWrite(bfile * bf, char * format, ...)
         c = *str;
         switch(c)
         {
-        //cas dont le caractère est un entier : %d
+        //cas dont l'argument est un entier : %d
         case 'd':
             x = va_arg(arg,int);
             s = convert_int_to_str(x);
             count ++;
             bWrite(s, sizeof(s), 1, bf);
             break;
-        //cas dont le caractère est un caractère : %c
+        //cas dont l'argument est un caractère : %c
         case 'c':
             c = va_arg(arg,int);
             count ++;
             bWrite(&c, 1, 1, bf);
             break;
-        //cas dont le caractère est une chaı̂ne : %s
+        //cas dont l'argument est une chaı̂ne : %s
         case 's':
             s = va_arg(arg,char*);
             count ++;
@@ -145,7 +145,7 @@ int fbRead(bfile * bf,  char * format, ...)
         c = *str;
         switch(c)
         {
-        //cas dont le caractère est un entier : %d
+        //cas dont l'argument est un entier : %d
         case 'd':
             x = (int *)va_arg(arg,int*);
             k=0;
@@ -179,14 +179,14 @@ int fbRead(bfile * bf,  char * format, ...)
             *x = atoi(s2);
             count ++;
             break;
-        //cas dont le caractère est un caractère : %c
+        //cas dont l'argument est un caractère : %c
         case 'c':
             c1 = (char *) va_arg(arg,char*);
             *c1 = s1[seek++];
             count ++;
             seek++;
             break;
-        //cas dont le caractère est une chaı̂ne : %s
+        //cas dont l'argument est une chaîne : %s
         case 's':
             s = (char *)va_arg(arg,char*);
             b2=1;

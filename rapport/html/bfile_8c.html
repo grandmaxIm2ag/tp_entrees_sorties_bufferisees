@@ -4,10 +4,18 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Entrées et Sorties Bufferisées: bfile.c File Reference</title>
+<title>TP CSE : Entrées et Sorties Bufferisées: bfile.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Entrées et Sorties Bufferisées
+   <div id="projectname">TP CSE : Entrées et Sorties Bufferisées
    </div>
   </td>
  </tr>
@@ -65,6 +73,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('bfile_8c.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -79,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
@@ -88,9 +110,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bfile.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implémentation des écritures et lectures bufférisées.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;include/format_in_out.h&quot;</code><br />
 <code>#include &quot;include/bfile.h&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -102,13 +121,14 @@ Include dependency graph for bfile.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="bfile_8c__incl.png" border="0" usemap="#bfile_8c" alt=""/></div>
 <map name="bfile_8c" id="bfile_8c">
+<area shape="rect" id="node2" href="format__in__out_8h_source.html" title="include/format_in_out.h" alt="" coords="5,80,163,107"/>
+<area shape="rect" id="node3" href="bfile_8h_source.html" title="bfile.h" alt="" coords="113,155,170,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbfile.html">bfile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure pour les écritures et lectures bufferisées.  <a href="structbfile.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -120,10 +140,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8e8ade7f5d2f2a5d15d1f55e29ebe37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est de fermer et libérée le fichier pointé sur la structure de donnée de type bfile.  <a href="#a8e8ade7f5d2f2a5d15d1f55e29ebe37c">More...</a><br /></td></tr>
 <tr class="separator:a8e8ade7f5d2f2a5d15d1f55e29ebe37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c435b2c42c2018b3aa726717b14dfa5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bfile_8c.html#a6c435b2c42c2018b3aa726717b14dfa5">bWrite</a> (void *p, int size, int nb_element, <a class="el" href="structbfile.html">bfile</a> *bf)</td></tr>
-<tr class="memdesc:a6c435b2c42c2018b3aa726717b14dfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est d'écrire nb_element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon.  <a href="#a6c435b2c42c2018b3aa726717b14dfa5">More...</a><br /></td></tr>
+<tr class="memdesc:a6c435b2c42c2018b3aa726717b14dfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est d'écrire nb_element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon contenu dans bf.  <a href="#a6c435b2c42c2018b3aa726717b14dfa5">More...</a><br /></td></tr>
 <tr class="separator:a6c435b2c42c2018b3aa726717b14dfa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e4cf066a33f4d82aa991ab71c7053dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bfile_8c.html#a5e4cf066a33f4d82aa991ab71c7053dc">bRead</a> (void *p, int size, int nb_element, <a class="el" href="structbfile.html">bfile</a> *bf)</td></tr>
-<tr class="memdesc:a5e4cf066a33f4d82aa991ab71c7053dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est de lire nb_element de size octets dans bf et y stocker à l’emplacement mémoire pointé par p/.  <a href="#a5e4cf066a33f4d82aa991ab71c7053dc">More...</a><br /></td></tr>
+<tr class="memdesc:a5e4cf066a33f4d82aa991ab71c7053dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est de lire nb_element de size octets dans le tampon contenu dans bf et y stocker à l’emplacement mémoire pointé par p/.  <a href="#a5e4cf066a33f4d82aa991ab71c7053dc">More...</a><br /></td></tr>
 <tr class="separator:a5e4cf066a33f4d82aa991ab71c7053dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b4b368e4c7ce8305cff87f5461cbca2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bfile_8c.html#a7b4b368e4c7ce8305cff87f5461cbca2">bFlush</a> (<a class="el" href="structbfile.html">bfile</a> *bf)</td></tr>
 <tr class="memdesc:a7b4b368e4c7ce8305cff87f5461cbca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Le but de la fonction est xde vider le tampon dans le fichier f.  <a href="#a7b4b368e4c7ce8305cff87f5461cbca2">More...</a><br /></td></tr>
@@ -133,7 +153,7 @@ Functions</h2></td></tr>
 <tr class="separator:ad9ef0d4831a1c1b5b59fdc7e6028c304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implémentation des écritures et lectures bufférisées. </p>
+<div class="textblock"><p>émentation des écritures et lectures bufférisées </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a8e8ade7f5d2f2a5d15d1f55e29ebe37c"></a>
 <div class="memitem">
@@ -152,7 +172,7 @@ Functions</h2></td></tr>
 <p>Le but de la fonction est de fermer et libérée le fichier pointé sur la structure de donnée de type bfile. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bf</td><td>: la structure à fermer</td></tr>
+    <tr><td class="paramname">bf</td><td>: la structure à ferme </td></tr>
   </table>
   </dd>
 </dl>
@@ -177,7 +197,7 @@ Functions</h2></td></tr>
 <p>Le but de la fonction est de remplir le tampon avec le fichier f. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bf</td><td></td></tr>
+    <tr><td class="paramname">bf</td><td>la structure bfile </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +222,7 @@ Functions</h2></td></tr>
 <p>Le but de la fonction est xde vider le tampon dans le fichier f. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bf</td><td></td></tr>
+    <tr><td class="paramname">bf</td><td>la structure bfile </td></tr>
   </table>
   </dd>
 </dl>
@@ -282,13 +302,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Le but de la fonction est de lire nb_element de size octets dans bf et y stocker à l’emplacement mémoire pointé par p/. </p>
+<p>Le but de la fonction est de lire nb_element de size octets dans le tampon contenu dans bf et y stocker à l’emplacement mémoire pointé par p/. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>: le pointeur à remplir </td></tr>
     <tr><td class="paramname">size</td><td>: la taille des données à lrie </td></tr>
     <tr><td class="paramname">nb_element</td><td>: le nombre de fois que nous lisons. </td></tr>
-    <tr><td class="paramname">bf</td><td></td></tr>
+    <tr><td class="paramname">bf</td><td>la structure bfile </td></tr>
   </table>
   </dd>
 </dl>
@@ -332,26 +352,30 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Le but de la fonction est d'écrire nb_element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon. </p>
+<p>Le but de la fonction est d'écrire nb_element de size octets stockés à l’emplacement mémoire pointé par p, dans le tampon contenu dans bf. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>: le pointeur à écrire </td></tr>
     <tr><td class="paramname">size</td><td>: la taille des données à écrire </td></tr>
     <tr><td class="paramname">nb_element</td><td>: le nombre de fois où on écrit. </td></tr>
-    <tr><td class="paramname">bf</td><td></td></tr>
+    <tr><td class="paramname">bf</td><td>la structure bfile </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>le nombre d’octets écrits </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>le nombre d’éléments écrits </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.11
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="bfile_8c.html">bfile.c</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
 </body>
 </html>
