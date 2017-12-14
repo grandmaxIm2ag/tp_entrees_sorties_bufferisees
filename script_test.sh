@@ -16,11 +16,11 @@ do
     touch generate_file.txt
     touch copied_file.txt
     ./generator generate_file.txt
-    #cat main.c > generate_file.txt
     ./main generate_file.txt copied_file.txt
-    diff generate_file.txt copied_file.txt > /tmp/tmp &&
-        nb_ok=$((nb_ok+1))
+    diff generate_file.txt copied_file.txt  &&
+    nb_ok=$((nb_ok+1))
     nb_test=$((nb_test+1))
+    rm *.txt
     echo -ne "tests : $i/$max           successfull : $nb_ok/$max\r"
 done
 

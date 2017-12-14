@@ -17,8 +17,8 @@ generator: generator.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 main_dyn: main.o lbfile.so.1
-	export LD_LIBRARY_PATH=.
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_DYN)
+	export LD_LIBRARY_PATH=.
 
 main_static: main.o lbfile.a
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDFLAGS_STATIC)

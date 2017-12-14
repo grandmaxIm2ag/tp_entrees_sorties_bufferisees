@@ -10,6 +10,8 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * \struct bfile 
@@ -25,7 +27,7 @@
  */
 struct bfile
 {
-    FILE * f;
+    int f;
     char mode;
     char * buffer;
     unsigned file_seek;
@@ -57,10 +59,10 @@ bfile * bOpen(const char * path, char mode){
      * pour créer un fichier vide pour les opérations de sortie ou ouvrir le fichier pour
      * les opérations d'entrée.
      */
-    FILE * f = fopen( path , ((mode == 'E') ? "w+" : "r") );
+    int f = open( path , ((mode == 'E') ? O_WRONLY | O_CREAT : O_RDONLY) );
 
-    //Si pointeur NULL, alors on revoie NULL 
-    if(f == NULL)
+    //Si l'ouverture du fichier n'a pas fonctionner, alors on revoie NULL 
+    if(f < 0)
     {
         return NULL;
     }
@@ -106,7 +108,7 @@ int bClose(bfile * bf)
     }
     
     //Ferme le fichier f associé au flux 
-    int ret = fclose(bf->f);
+    int ret = close(bf->f);
 
     //Libère la mémoire précédemment allouée mlors de l'ouverture
     free(bf -> buffer);
@@ -115,7 +117,7 @@ int bClose(bfile * bf)
     return ret;
 }
 /**
- * \fn int bWrite(void * p, int size, int nb_element, bfile * bf)
+ * \fn ssize_t bWrite(void * p, int size, int nb_element, bfile * bf)
  * \param p : le pointeur à écrire
  * \param size : la taille des données à écrire
  * \param nb_element : le nombre de fois où on écrit.
@@ -124,7 +126,7 @@ int bClose(bfile * bf)
  * \brief Le but de la fonction est d'écrire nb_element de size octets stockés
  * à l’emplacement mémoire pointé par p, dans le tampon contenu dans bf.
  */
-int bWrite(void * p, int size, int nb_element, bfile * bf)
+ssize_t bWrite(void * p, int size, int nb_element, bfile * bf)
 {
     if(bf == NULL || p == NULL)
     {
@@ -138,7 +140,7 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
 
     char * pp = (char*) p;
 
-    int ret = 0;
+    ssize_t ret = 0;
 
     int i;
     for( i = 0 ; i < nb_element*size; i++ )
@@ -162,7 +164,7 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
 }
 
 /**
- * \fn int bRead(void * p, int size, int nb_element, bfile * bf)
+ * \fn ssize_t bRead(void * p, int size, int nb_element, bfile * bf)
  * \param p : le pointeur à remplir
  * \param size : la taille des données à lrie
  * \param nb_element : le nombre de fois que nous lisons.
@@ -171,7 +173,7 @@ int bWrite(void * p, int size, int nb_element, bfile * bf)
  * \brief Le but de la fonction est de lire nb_element de size octets dans le
  * tampon contenu dans bf et y stocker à l’emplacement mémoire pointé par p/
  */
-int bRead(void * p, int size, int nb_element, bfile * bf)
+ssize_t bRead(void * p, int size, int nb_element, bfile * bf)
 {
 
     if(bf == NULL || p==NULL)
@@ -213,28 +215,28 @@ int bRead(void * p, int size, int nb_element, bfile * bf)
 }
 
 /**
- *\fn int bFlush(bfile * bf)
+ *\fn ssize_t bFlush(bfile * bf)
  * \param bf: la structure bfile
  * \return Le nombre d'octet écrit dans le fichier
  * \brief Le but de la fonction est xde vider le tampon dans le fichier f
  */
-int bFlush(bfile * bf)
+ssize_t bFlush(bfile * bf)
 {
-    int ret = fwrite(bf -> buffer, 1,bf->buffer_seek, bf -> f);
-    fflush(bf->f);
+    ssize_t ret = write(bf -> f,bf -> buffer, bf->buffer_seek);
+    fsync(bf->f);
     bf -> buffer_seek = 0;
     return ret;
 }
 
 /**
- *\fn int bFill(bfile * bf)
+ *\fn ssize_t bFill(bfile * bf)
  * \param bf: la structure bfile
  * \return Le nombre d'octet lu dans le fichier
  * \brief Le but de la fonction est de remplir le tampon avec le fichier f
  */
-int bFill(bfile * bf)
+ssize_t bFill(bfile * bf)
 {
-    int ret =  fread(bf -> buffer, 1,bf -> size_buffer, bf ->f);
+    ssize_t ret =  read(bf ->f, bf -> buffer, bf -> size_buffer);
     bf-> buffer_seek= 0;
     bf -> size_buffer = ret;
     //Si rien n'est lu, alors on met à true le bolléen de fin de fichier 

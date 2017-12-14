@@ -1,9 +1,19 @@
+/**
+ * \file main.c
+ * \brief Programme de tests.
+ * 
+ * \brief Programme de test pour les écritures et lectures non formatées.
+ * Ce programme va lire un fichier passé en paramètre, et l'écrire dans un second
+ * fichier.
+ *
+ */
 #include "include/bfile.h"
 #include "include/format_in_out.h"
 #include <time.h>
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 int main(int argc, char ** argv)
 {
@@ -20,6 +30,10 @@ int main(int argc, char ** argv)
     bfile * in = bOpen(argv[1], 'L');
     bfile * out = bOpen(argv[2], 'E');
 
+    //Renvoie une erreur si l'ouverture du fichier n'a pas fonctionné
+    assert(in != NULL);
+    assert(out != NULL);
+    
     char s[100];
     int r,n;
 

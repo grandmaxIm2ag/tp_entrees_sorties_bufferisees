@@ -1,3 +1,10 @@
+/**
+ * \file generator.c
+ *
+ * \brief Génère des fichiers de taille et de contenu aléatoire.
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

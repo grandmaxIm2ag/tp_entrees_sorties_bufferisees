@@ -1,3 +1,14 @@
+/**
+ * \file test_format.c
+ * \brief Programme de tests.
+ * 
+ * \brief Programme de test pour les écritures et lectures formatées.
+ * Ce programme écrite dans une fichier passé en paramètre une chaîne formatée
+ * puis lis cette même chaîne dans le fichier et vérifie que les valeurs sont
+ * les bonnes.
+ *
+ */
+
 #include "include/bfile.h"
 #include "include/format_in_out.h"
 #include <time.h>
